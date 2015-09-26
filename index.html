@@ -115,6 +115,15 @@
 						<p>Absolutely. Groovy things can take time, and often do. Let me give you some examples of workflows that work well for me, in the context of discussing merge and rebase.</p>
 					</section>
 				</section>
+				<section>
+					<h2>New to Git?</h2>
+					<p>When getting started with git I'd recommend keeping your workflow simple and gradually expanding your knowledge out. I'd say start out with just merge, and then throw some rebases in there once you're comfortable. In my opinon bad merges are a little less vile to undo than bad rebases.</p>
+				</section>
+				<section>
+					<h2>Cleaning Up History?</h2>
+					<p>What constitutes a clean history in somewhat down to your workflow. It can be that you have branches that are merged into master then pruned, in which case maybe you just want merge. But maybe you want to clean those branches up, or maybe you want to clean some commits you stuck into master. In which case interactive rebase may be your friend</p>
+					<p><code>git rebase -i</code></p>
+				</section>
 			</div>
 		</div>
 
