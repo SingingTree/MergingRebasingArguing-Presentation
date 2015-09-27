@@ -93,13 +93,19 @@
 					<p><small><i>'All these facts and opinions look the same. I can't tell them apart.''</i> - Joy (of Inside Out)</small></p>
 				</section>
 				<section>
-					<h2>How I Feel</h2>
-					<p>Merge and rebase are underpinned by the same tech, they don't do anything radically different.</p>
-					<ul>
-						<li>They don't result in different data in your commits</li>
-						<li>Conflict resolution is the same with both</li>
-						<li>Both are viable ways to integrate changes from branches into other branches</li>
-					</ul>
+					<section>
+						<h2>How I Feel</h2>
+						<p>Merge and rebase are underpinned by the same tech, they don't do anything radically different.</p>
+						<ul>
+							<li>They don't result in different data in your commits</li>
+							<li>Conflict resolution is not handled differently with either</li>
+							<li>Both are viable ways to integrate changes from branches into other branches</li>
+						</ul>
+					</section>
+					<section>
+						<h2>There are Some Differences</h2>
+						<p>The above said, a really important <b>difference</b> to note is that rebase rewrites commits by chaning their parent, while merge does not</p>
+					</section>
 				</section>
 				<section>
 					<section>
@@ -117,12 +123,49 @@
 				</section>
 				<section>
 					<h2>New to Git?</h2>
-					<p>When getting started with git I'd recommend keeping your workflow simple and gradually expanding your knowledge out. I'd say start out with just merge, and then throw some rebases in there once you're comfortable. In my opinon bad merges are a little less vile to undo than bad rebases.</p>
+					<p>Note: when getting started with git I'd recommend keeping your workflow simple and gradually expanding your knowledge out. I'd say start out with just merge, and then throw some rebases in there once you're comfortable. In my opinon bad merges are a little less vile to undo than bad rebases.</p>
 				</section>
 				<section>
-					<h2>Cleaning Up History?</h2>
-					<p>What constitutes a clean history in somewhat down to your workflow. It can be that you have branches that are merged into master then pruned, in which case maybe you just want merge. But maybe you want to clean those branches up, or maybe you want to clean some commits you stuck into master. In which case interactive rebase may be your friend</p>
-					<p><code>git rebase -i</code></p>
+					<section>
+						<h2>What Kind of Workflow?</h2>
+						<p>There's a number of workflows I've encountered in my travels, let me talk about some of them and how merge and rebase can fit into them.</p>
+					</section>
+					<section>
+						<h2>Branch and Merge</h2>
+						<p>It can be that you have branches that are merged into master, and then those branches are left to exist (the following commands are executed on master):</p>
+						<p><code>git merge my_branch</code></p>
+						<p>Maybe you want to merge the branch but then delete it:</p>
+						<p><code>git branch -d my_branch</code></p>
+					</section>
+					<section>
+						<h2>Branch and Merge + Grooming Branches</h2>
+						<p>Maybe you want to clean that branch by squashing some commits, or rewriting their commit messages, before merging said branch? In this case interactive rebase may be your friend (executed while on your branch):</p>
+						<p><code>git rebase -i</code></p>
+					</section>
+					<section>
+						<h2>Branch and Rebase</h2>
+						<p>Instead of merging changes into master, you can rebase your changes onto master (the following commands are executed on master):</p>
+						<p><code>git rebase my_branch</code></p>
+						<p>Or do so interactively, so you can mess with the commits while you rebase:</p>
+						<p><code>git rebase -i my_branch</code></p>
+					</section>
+				</section>
+				<section>
+					<h2>It's About Workflows</h2>
+					<p>Those examples are simple, but exemplify the importance of bearning in mind different workflows people want:</p>
+					<ul>
+						<li>Some people don't mind branches being messy because they're going to be deleted</li>
+						<li>Some people think you shouldn't alter history via rebase because the commit graph should reprsent what actually happened</li>
+						<li>Some people value a concise history over the above</li>
+					</ul>
+				</section>
+				<section>
+					<h2>Make an Informed Decision</h2>
+					<p>There are certainly places where merge and rebase can overlap. Decide which is best for you/your team/whatever based on the outcomes you want.</p>
+				</section>
+				<section>
+					<h2>Arguing</h2>
+					<p>Once you've considered that there are many different workflows, and that one size doesn't fit all, and thought through the pros and cons of your preferred workflow: well then I guess you can start flaming people on the internet.<p>
 				</section>
 			</div>
 		</div>
